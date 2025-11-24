@@ -3,6 +3,7 @@
 bin/
 obj/
 out/
+Properties/
 artifacts/
 publish/
 
