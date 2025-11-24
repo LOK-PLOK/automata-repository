@@ -28,12 +28,12 @@ namespace PA1
 
         private void txtInput_TextChanged(object sender, EventArgs e)
         {
-            // Optional: add live validation here
+            // Optional
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Optional: initialization code
+            // Optional
         }
     }
 }

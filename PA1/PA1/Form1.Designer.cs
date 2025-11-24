@@ -31,7 +31,7 @@
             txtOutput = new TextBox();
             SuspendLayout();
 
-            // lblInput
+            // styling para sa lblInput
             lblInput.AutoSize = true;
             lblInput.Font = new Font("JetBrains Mono", 12F);
             lblInput.ForeColor = Color.White;
@@ -41,7 +41,7 @@
             lblInput.TabIndex = 0;
             lblInput.Text = "Input:";
 
-            // txtInput
+            // styling para sa txtInput
             txtInput.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             txtInput.BackColor = Color.FromArgb(37, 37, 38);
             txtInput.Font = new Font("JetBrains Mono", 12F);
@@ -54,7 +54,7 @@
             txtInput.TabIndex = 1;
             txtInput.TextChanged += txtInput_TextChanged;
 
-            // btnStart
+            // styling para sa btnStart
             btnStart.Anchor = AnchorStyles.Top;
             btnStart.BackColor = Color.FromArgb(10, 132, 255);
             btnStart.FlatAppearance.BorderSize = 0;
@@ -69,7 +69,7 @@
             btnStart.UseVisualStyleBackColor = false;
             btnStart.Click += btnStart_Click;
 
-            // btnClear
+            // styling para sa btnClear
             btnClear.Anchor = AnchorStyles.Top;
             btnClear.BackColor = Color.FromArgb(255, 59, 48);
             btnClear.FlatAppearance.BorderSize = 0;
@@ -84,7 +84,7 @@
             btnClear.UseVisualStyleBackColor = false;
             btnClear.Click += btnClear_Click;
 
-            // lblOutput
+            // styling para sa lblOutput
             lblOutput.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblOutput.AutoSize = true;
             lblOutput.Font = new Font("JetBrains Mono", 12F);
@@ -95,7 +95,7 @@
             lblOutput.TabIndex = 4;
             lblOutput.Text = "Output:";
 
-            // txtOutput
+            // styling para sa txtOutput
             txtOutput.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             txtOutput.BackColor = Color.FromArgb(37, 37, 38);
             txtOutput.Font = new Font("JetBrains Mono", 12F);
@@ -108,7 +108,7 @@
             txtOutput.Size = new Size(300, 140);
             txtOutput.TabIndex = 5;
 
-            // Form1
+            // Combine tanant para kay Form1
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(780, 220);
             Controls.Add(lblInput);
