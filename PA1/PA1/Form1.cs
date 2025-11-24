@@ -1,4 +1,4 @@
-namespace Prog_Ass_1
+namespace PA1
 {
     public partial class Form1 : Form
     {

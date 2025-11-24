@@ -1,4 +1,4 @@
-﻿namespace Prog_Ass_1
+﻿namespace PA1
 {
     partial class Form1
     {

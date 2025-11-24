@@ -1,0 +1,94 @@
+# Visual Studio / .NET (tailored for .NET 10 projects)
+## Build artifacts
+bin/
+obj/
+out/
+artifacts/
+publish/
+
+## Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Rider / IntelliJ
+.idea/
+*.sln.iml
+
+## Visual Studio Code
+.vscode/
+
+## NuGet
+packages/
+.nuget/packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+project.assets.json
+.nuget/NuGetFallbackFolder/
+
+## Dotnet tools & temporary files
+*.DotSettings.user
+.tools/
+.tool/
+*.log
+*.opendb
+*.db
+*.db-shm
+*.db-wal
+
+## Testing
+TestResults/
+*.trx
+.coverage
+*.coverage
+.vstest/
+
+## Publish / Deployment
+*.Publish.xml
+publish/
+deploy/
+_PublishedWebsites/
+
+## User secrets & local config
+secrets.json
+local.settings.json
+appsettings.*.Local.json
+.env
+.env.local
+
+## Resharper
+_ReSharper*/
+*.DotSettings
+
+## JetBrains Rider caches
+.idea/
+
+## Generated, OS, and editor files
+*.cache
+*.vsix
+*.ncb
+*.sdf
+*.dbmdl
+*.bak
+*.backup
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+## Package managers / front-end (if any)
+node_modules/
+wwwroot/lib/
+
+## Misc
+*.class
+*.classfile
+*.seed
+*.pdb
+
+# Ignore published NuGet package signing keys or private artifacts
+*.snk
+*.pfx
