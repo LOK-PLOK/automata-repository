@@ -30,17 +30,17 @@ namespace PA2
                     continue;
                 }
 
-                // Accept both lowercase and uppercase a/b. Any other character -> NO.
-                bool onlyAB = s.All(ch => ch == 'a' || ch == 'A' || ch == 'b' || ch == 'B');
+                // Case-sensitive: accept only lowercase 'a' and 'b'. Any other character -> No.
+                bool onlyLowerAB = s.All(ch => ch == 'a' || ch == 'b');
                 string result;
-                if (!onlyAB)
+                if (!onlyLowerAB)
                 {
                     result = "No";
                 }
                 else
                 {
-                    int aCount = s.Count(ch => ch == 'a' || ch == 'A');
-                    int bCount = s.Count(ch => ch == 'b' || ch == 'B');
+                    int aCount = s.Count(ch => ch == 'a');
+                    int bCount = s.Count(ch => ch == 'b');
 
                     bool aEven = (aCount % 2) == 0;
                     bool bOdd = (bCount % 2) == 1;
@@ -63,8 +63,8 @@ namespace PA2
                 return;
             }
 
-            bool anyYes = nonEmpty.Any(x => string.Equals(x, "Yes", StringComparison.OrdinalIgnoreCase));
-            bool anyNo = nonEmpty.Any(x => string.Equals(x, "No", StringComparison.OrdinalIgnoreCase));
+            bool anyYes = nonEmpty.Any(x => string.Equals(x, "Yes", StringComparison.Ordinal));
+            bool anyNo = nonEmpty.Any(x => string.Equals(x, "No", StringComparison.Ordinal));
 
             if (anyYes && !anyNo)
             {

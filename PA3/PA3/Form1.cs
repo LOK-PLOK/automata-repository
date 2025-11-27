@@ -31,15 +31,11 @@ namespace PA3
                     continue;
                 }
 
-                // Accept only a, b, c (case-insensitive). Any other character -> NO.
-                bool onlyABC = s.All(ch =>
-                {
-                    var lower = char.ToLowerInvariant(ch);
-                    return lower == 'a' || lower == 'b' || lower == 'c';
-                });
+                // Case-sensitive: accept only lowercase 'a', 'b', 'c'. Any other character -> NO.
+                bool onlyLowerABC = s.All(ch => ch == 'a' || ch == 'b' || ch == 'c');
 
                 string result;
-                if (!onlyABC)
+                if (!onlyLowerABC)
                 {
                     result = "NO";
                 }
@@ -47,18 +43,18 @@ namespace PA3
                 {
                     // check form a^n b^n c^n with all counts equal and ordering a...b...c...
                     int i = 0;
-                    while (i < s.Length && char.ToLowerInvariant(s[i]) == 'a') i++;
+                    while (i < s.Length && s[i] == 'a') i++;
                     int aCount = i;
 
                     int j = i;
-                    while (j < s.Length && char.ToLowerInvariant(s[j]) == 'b') j++;
+                    while (j < s.Length && s[j] == 'b') j++;
                     int bCount = j - i;
 
                     int k = j;
-                    while (k < s.Length && char.ToLowerInvariant(s[k]) == 'c') k++;
+                    while (k < s.Length && s[k] == 'c') k++;
                     int cCount = k - j;
 
-                    // must consume entire string and counts must be equal (n >= 1 allowed)
+                    // must consume entire string and counts must be equal
                     if (k != s.Length)
                     {
                         result = "NO";
