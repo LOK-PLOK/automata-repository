@@ -26,7 +26,6 @@ namespace PA3
                 var s = (raw ?? string.Empty).Trim();
                 if (s.Length == 0)
                 {
-                    // preserve blank lines in the output area
                     outputs.Add(string.Empty);
                     continue;
                 }
@@ -34,45 +33,15 @@ namespace PA3
                 // Case-sensitive: accept only lowercase 'a', 'b', 'c'. Any other character -> NO.
                 bool onlyLowerABC = s.All(ch => ch == 'a' || ch == 'b' || ch == 'c');
 
-                string result;
-                if (!onlyLowerABC)
+                string result = "NO";
+                if (onlyLowerABC && IsAnBnCn_WithStacks(s))
                 {
-                    result = "NO";
-                }
-                else
-                {
-                    // check form a^n b^n c^n with all counts equal and ordering a...b...c...
-                    int i = 0;
-                    while (i < s.Length && s[i] == 'a') i++;
-                    int aCount = i;
-
-                    int j = i;
-                    while (j < s.Length && s[j] == 'b') j++;
-                    int bCount = j - i;
-
-                    int k = j;
-                    while (k < s.Length && s[k] == 'c') k++;
-                    int cCount = k - j;
-
-                    // must consume entire string and counts must be equal
-                    if (k != s.Length)
-                    {
-                        result = "NO";
-                    }
-                    else if (aCount == bCount && bCount == cCount)
-                    {
-                        result = "YES";
-                    }
-                    else
-                    {
-                        result = "NO";
-                    }
+                    result = "YES";
                 }
 
                 outputs.Add(result);
             }
 
-            // Show results (preserve blank lines)
             txtOutput.Text = string.Join(Environment.NewLine, outputs);
 
             // Background color logic YES = green and NO = red
@@ -103,6 +72,64 @@ namespace PA3
                 txtOutput.BackColor = _defaultOutputBack;
                 txtOutput.ForeColor = Color.White;
             }
+        }
+
+        private static bool IsAnBnCn_WithStacks(string s)
+        {
+            var stackA = new Stack<char>();
+            var stackB = new Stack<char>();
+            int section = 0; 
+
+            foreach (var ch in s)
+            {
+                switch (ch)
+                {
+                    case 'a':
+                        // 'a' allowed only in a-section
+                        if (section != 0)
+                        {
+                            return false;
+                        }
+
+                        stackA.Push('a');
+                        break;
+
+                    case 'b':
+                        // 'b' not allowed after entering c-section
+                        if (section == 2)
+                        {
+                            return false;
+                        }
+
+                        section = 1; // enter b-section
+                        if (stackA.Count == 0)
+                        {
+                            // more b's than a's
+                            return false;
+                        }
+
+                        stackA.Pop();
+                        stackB.Push('b');
+                        break;
+
+                    case 'c':
+                        // enter c-section
+                        section = 2;
+                        if (stackB.Count == 0)
+                        {
+                            // more c's than b's
+                            return false;
+                        }
+
+                        stackB.Pop();
+                        break;
+
+                    default:
+                        return false; 
+                }
+            }
+
+            return stackA.Count == 0 && stackB.Count == 0 && section == 2;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
